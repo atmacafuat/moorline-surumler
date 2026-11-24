@@ -16,16 +16,16 @@ no cloud, no account, no background bloat.</p>
 
 ## What it does
 
-| Module | |
-|---|---|
-| **Göz** | Share a Reel, Short, photo or link from your phone — your PC saves it, transcribes it and turns it into notes. |
-| **Conch** | Your phone's music, on your PC speakers. Now-playing, play/pause/skip, its own volume — and a tiny overlay that never steals focus from your game. |
-| **Wake** | Drop files in either direction. Batch sends with per-file progress; only the failed one retries. |
-| **Ekran** | Use your iPhone as a second screen. |
-| **Kamera** | Use your iPhone camera as a webcam. |
-| **Kumanda** | Launch apps, change volume or lock the PC from your phone — every action off until you allow it. |
-| **Sync** | Clipboard both ways, battery level in the corner, phone notifications on your desktop. All opt-in. |
-| **Siri** | "Open Conch", "Send my last photo to my PC", "Lock my PC". |
+| | Module | |
+|:-:|---|---|
+| <img src="assets/icons/goz.svg" width="40" alt=""> | **Göz** | Share a Reel, Short, photo or link from your phone — your PC saves it, transcribes it and turns it into notes. |
+| <img src="assets/icons/conch.svg" width="40" alt=""> | **Conch** | Your phone's music, on your PC speakers. Now-playing, play/pause/skip, its own volume — and a tiny overlay that never steals focus from your game. |
+| <img src="assets/icons/wake.svg" width="40" alt=""> | **Wake** | Drop files in either direction. Batch sends with per-file progress; only the failed one retries. |
+| <img src="assets/icons/ekran.svg" width="40" alt=""> | **Ekran** | Use your iPhone as a second screen. |
+| <img src="assets/icons/kamera.svg" width="40" alt=""> | **Kamera** | Use your iPhone camera as a webcam. |
+| <img src="assets/icons/kumanda.svg" width="40" alt=""> | **Kumanda** | Launch apps, change volume or lock the PC from your phone — every action off until you allow it. |
+| <img src="assets/icons/sync.svg" width="40" alt=""> | **Sync** | Clipboard both ways, battery level in the corner, phone notifications on your desktop. All opt-in. |
+| <img src="assets/icons/siri.svg" width="40" alt=""> | **Siri** | "Open Conch", "Send my last photo to my PC", "Lock my PC". |
 
 ## Built to stay out of the way
 
