@@ -1,0 +1,91 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: Inter, sans-serif; color: #F2F3F5; }
+    .h-cam { position: absolute; inset: 0; }
+    .phone { position: absolute; width: 280px; height: 580px; border-radius: 48px; background: #1d2025; box-shadow: inset 0 0 0 3px #3a3e46, 0 40px 80px -30px rgba(0,0,0,.8); }
+    .phone .scr { position: absolute; inset: 12px; border-radius: 38px; background: #0c0d0f; overflow: hidden; }
+    .phone .isl { position: absolute; left: 98px; top: 22px; width: 84px; height: 24px; border-radius: 12px; background: #000; }
+    .pc { position: absolute; width: 720px; height: 450px; border-radius: 18px; background: #1d2025; box-shadow: inset 0 0 0 3px #3a3e46, 0 40px 80px -30px rgba(0,0,0,.8); }
+    .pc .scr { position: absolute; inset: 16px; border-radius: 8px; background: #0c0d0f; overflow: hidden; }
+    .pc .neck { position: absolute; left: 325px; top: 450px; width: 70px; height: 56px; background: #1d2025; }
+    .pc .base { position: absolute; left: 230px; top: 504px; width: 260px; height: 14px; border-radius: 7px; background: #2a2d33; }
+    #h-phone { left: 230px; top: 210px; }
+    #h-pc { left: 1010px; top: 180px; }
+    .bar { position: absolute; height: 14px; border-radius: 7px; background: #3a3e46; }
+    .big { position: absolute; left: 140px; font-weight: 900; font-size: 168px; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; }
+    .big span { display: inline-block; }
+    #h-l1 { top: 446px; }
+    #h-l2 { top: 446px; }
+    .acc { color: #F0553A; }
+    #h-l3 { position: absolute; left: 230px; top: 880px; font-weight: 800; font-size: 72px; letter-spacing: -0.03em; white-space: nowrap; }
+    #h-l3 span { display: inline-block; }
+    #h-rope { position: absolute; left: 0; top: 0; }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1920" data-height="1080">
+    <div class="h-cam" id="h-cam">
+      <svg id="h-rope" width="1920" height="1080" viewBox="0 0 1920 1080">
+        <defs>
+          <linearGradient id="h-rg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F0553A"/><stop offset="1" stop-color="#ff8a5c"/></linearGradient>
+        </defs>
+        <path id="h-line" d="M510 500 C 640 660, 880 640, 1010 420" fill="none" stroke="url(#h-rg)" stroke-width="6" stroke-linecap="round"/>
+        <path id="h-dots" d="M510 500 C 640 660, 880 640, 1010 420" fill="none" stroke="#ff8a5c" stroke-width="14" stroke-linecap="round" stroke-dasharray="1 22"/>
+        <circle id="h-k1" cx="510" cy="500" r="11" fill="#F0553A"/>
+        <circle id="h-k2" cx="1010" cy="420" r="11" fill="#F0553A"/>
+      </svg>
+      <div class="phone" id="h-phone">
+        <div class="scr">
+          <svg width="256" height="556" viewBox="0 0 256 556">
+            <circle id="h-ring" cx="128" cy="278" r="44" fill="none" stroke="#F0553A" stroke-width="7"/>
+            <circle id="h-dot" cx="128" cy="278" r="14" fill="#F0553A"/>
+          </svg>
+        </div>
+        <div class="isl"></div>
+      </div>
+      <div class="pc" id="h-pc">
+        <div class="scr">
+          <div class="bar h-b" style="left:48px;top:60px;width:220px"></div>
+          <div class="bar h-b" style="left:48px;top:100px;width:380px"></div>
+          <div class="bar h-b" style="left:48px;top:140px;width:300px;background:#F0553A"></div>
+          <div class="bar h-b" style="left:48px;top:180px;width:340px"></div>
+        </div>
+        <div class="neck"></div><div class="base"></div>
+      </div>
+    </div>
+    <div class="big" id="h-l1"><span>Your</span> <span class="acc">iPhone.</span></div>
+    <div class="big" id="h-l2"><span>Your</span> <span class="acc">PC.</span></div>
+    <div id="h-l3"><span>Moored</span> <span>over</span> <span>your</span> <span>home</span> <span>network.</span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const len = document.querySelector("#h-line").getTotalLength();
+      // phase 1: phone hero on the right
+      tl.fromTo("#h-phone", { x: 1000, y: 30, scale: 1.08 }, { x: 1000, y: 30, scale: 1, duration: 1.1, ease: "power2.out" }, 0);
+      tl.fromTo("#h-ring", { attr: { r: 0 } }, { attr: { r: 44 }, duration: 0.45, ease: "expo.out" }, 0.1);
+      tl.fromTo("#h-dot", { attr: { r: 0 } }, { attr: { r: 14 }, duration: 0.35, ease: "back.out(2)" }, 0.25);
+      tl.fromTo("#h-l1 span", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, stagger: 0.09, ease: "power4.out" }, 0.0);
+      tl.fromTo("#h-pc", { x: 1100, y: 60, filter: "blur(0px)" }, { x: 1100, y: 60, duration: 0.01 }, 0);
+      tl.fromTo(["#h-line", "#h-dots", "#h-k1", "#h-k2"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#h-l3 span", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      // whip to PC
+      tl.to("#h-phone", { x: -700, filter: "blur(18px)", duration: 0.28, ease: "power3.in" }, 1.15);
+      tl.to("#h-l1", { x: -500, opacity: 0, filter: "blur(16px)", duration: 0.24, ease: "power3.in" }, 1.15);
+      tl.fromTo("#h-pc", { x: 1100, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out", immediateRender: false }, 1.4);
+      tl.fromTo(".h-b", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 0.4, stagger: 0.06, ease: "expo.out" }, 1.6);
+      tl.fromTo("#h-l2", { x: 500, opacity: 0, filter: "blur(16px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 1.42);
+      // wide: phone comes back, rope is thrown
+      tl.to("#h-l2", { opacity: 0, filter: "blur(10px)", duration: 0.16, ease: "power2.in" }, 2.3);
+      tl.to("#h-pc", { y: 0, duration: 0.5, ease: "power2.inOut" }, 2.3);
+      tl.fromTo("#h-phone", { x: -700, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out", immediateRender: false }, 2.35);
+      tl.fromTo("#h-line", { opacity: 1, strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, 2.65);
+      tl.fromTo("#h-k1", { opacity: 1, attr: { r: 0 } }, { attr: { r: 11 }, duration: 0.3, ease: "back.out(3)" }, 2.6);
+      tl.fromTo("#h-k2", { opacity: 1, attr: { r: 0 } }, { attr: { r: 11 }, duration: 0.3, ease: "back.out(3)" }, 3.1);
+      tl.fromTo("#h-dots", { opacity: 0, strokeDashoffset: 0 }, { opacity: 1, strokeDashoffset: -230, duration: 1.4, ease: "none" }, 3.1);
+      tl.fromTo("#h-l3 span", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, stagger: 0.07, ease: "power4.out", immediateRender: false }, 2.85);
+      // zoom through the rope
+      tl.to("#h-l3", { opacity: 0, filter: "blur(10px)", duration: 0.15, ease: "power2.in" }, 4.28);
+      tl.fromTo("#h-cam", { scale: 1, transformOrigin: "760px 603px", filter: "blur(0px)" }, { scale: 9, filter: "blur(6px)", duration: 0.3, ease: "power3.in" }, 4.3);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,49 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: Inter, sans-serif; color: #F2F3F5; }
+    .n-wrap { position: absolute; inset: 0; }
+    .n-w { position: absolute; left: 140px; font-weight: 900; font-size: 150px; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; }
+    .n-w .t { display: inline-block; }
+    .n-w .k { position: absolute; left: -12px; right: -16px; top: 76px; height: 16px; border-radius: 8px; background: #F0553A; }
+    #n-1 { top: 150px; } #n-2 { top: 320px; } #n-3 { top: 490px; } #n-4 { top: 660px; }
+    #n-r { position: absolute; left: 1130px; top: 330px; white-space: nowrap; }
+    #n-r .q { font-weight: 700; font-size: 64px; color: #8E939B; letter-spacing: -0.02em; }
+    #n-r .a { font-weight: 900; font-size: 150px; letter-spacing: -0.045em; line-height: 1.0; margin-top: 6px; }
+    #n-r span { display: inline-block; }
+    .acc { color: #F0553A; }
+  </style>
+  <div id="root" data-composition-id="nocloud" data-width="1920" data-height="1080">
+    <div class="n-wrap" id="n-wrap">
+      <div class="n-w" id="n-1"><span class="t">Cloud.</span><div class="k"></div></div>
+      <div class="n-w" id="n-2"><span class="t">Account.</span><div class="k"></div></div>
+      <div class="n-w" id="n-3"><span class="t">Telemetry.</span><div class="k"></div></div>
+      <div class="n-w" id="n-4"><span class="t">Auto-start.</span><div class="k"></div></div>
+      <div id="n-r">
+        <div class="q"><span>Just</span> <span>your</span></div>
+        <div class="a"><span>home</span></div>
+        <div class="a"><span class="acc">network.</span></div>
+        <svg id="n-rope" width="640" height="60" viewBox="0 0 640 60" style="display:block;margin-top:14px"><path id="n-rl" d="M6 30 C 160 58, 300 2, 460 30 S 600 40, 634 24" fill="none" stroke="#F0553A" stroke-width="5" stroke-linecap="round"/><path id="n-rd" d="M6 30 C 160 58, 300 2, 460 30 S 600 40, 634 24" fill="none" stroke="#ff8a5c" stroke-width="13" stroke-linecap="round" stroke-dasharray="1 22"/></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const ids = ["#n-1", "#n-2", "#n-3", "#n-4"];
+      ids.forEach((id, i) => {
+        const t0 = 0.02 + i * 0.2;
+        tl.fromTo(id + " .t", { opacity: 0, x: -60, filter: "blur(14px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.28, ease: "expo.out" }, t0);
+        tl.fromTo(id + " .k", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 0.22, ease: "power3.out" }, t0 + 0.3);
+        tl.fromTo(id + " .t", { color: "#F2F3F5" }, { color: "#4a4f58", duration: 0.2, ease: "power2.out", immediateRender: false }, t0 + 0.34);
+      });
+      tl.fromTo("#n-r .q span", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, stagger: 0.07, ease: "power4.out" }, 1.15);
+      tl.fromTo("#n-r .a span", { opacity: 0, filter: "blur(12px)", scale: 1.12, transformOrigin: "0 60%" }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.3, stagger: 0.1, ease: "expo.out" }, 1.3);
+      const rl = document.querySelector("#n-rl").getTotalLength();
+      tl.fromTo("#n-rl", { strokeDasharray: rl, strokeDashoffset: rl }, { strokeDashoffset: 0, duration: 0.4, ease: "power2.inOut" }, 1.55);
+      tl.fromTo("#n-rd", { opacity: 0, strokeDashoffset: 0 }, { opacity: 1, strokeDashoffset: -230, duration: 1.1, ease: "none" }, 1.9);
+      // whip up into the stage
+      tl.to("#n-wrap", { y: -1100, filter: "blur(16px)", duration: 0.26, ease: "power3.in" }, 2.64);
+      window.__timelines["nocloud"] = tl;
+    })();
+  </script>
+</template>

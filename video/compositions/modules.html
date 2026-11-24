@@ -1,0 +1,379 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: Inter, sans-serif; color: #F2F3F5; }
+    .m-stage { position: absolute; inset: 0; }
+    .phone { position: absolute; left: 230px; top: 210px; width: 280px; height: 580px; border-radius: 48px; background: #1d2025; box-shadow: inset 0 0 0 3px #3a3e46, 0 40px 80px -30px rgba(0,0,0,.8); }
+    .phone .scr { position: absolute; left: 12px; top: 12px; width: 256px; height: 556px; border-radius: 38px; background: #0c0d0f; overflow: hidden; }
+    .phone .isl { position: absolute; left: 98px; top: 22px; width: 84px; height: 24px; border-radius: 12px; background: #000; z-index: 9; }
+    .pc { position: absolute; left: 1010px; top: 180px; width: 720px; height: 450px; border-radius: 18px; background: #1d2025; box-shadow: inset 0 0 0 3px #3a3e46, 0 40px 80px -30px rgba(0,0,0,.8); }
+    .pc .scr { position: absolute; left: 16px; top: 16px; width: 688px; height: 418px; border-radius: 8px; background: #0c0d0f; overflow: hidden; }
+    .pc .neck { position: absolute; left: 325px; top: 450px; width: 70px; height: 56px; background: #1d2025; }
+    .pc .base { position: absolute; left: 230px; top: 504px; width: 260px; height: 14px; border-radius: 7px; background: #2a2d33; }
+    .L { position: absolute; inset: 0; opacity: 0; }
+    .bar { position: absolute; height: 12px; border-radius: 6px; background: #3a3e46; }
+    .card { position: absolute; background: #16181c; border-radius: 16px; box-shadow: inset 0 0 0 2px #2a2d33; }
+    .t26 { position: absolute; font-size: 30px; font-weight: 700; white-space: nowrap; }
+    .t22 { position: absolute; font-size: 26px; font-weight: 600; color: #8E939B; white-space: nowrap; }
+    .ok { position: absolute; width: 30px; height: 30px; border-radius: 15px; background: #F0553A; }
+    .ok svg { position: absolute; left: 6px; top: 7px; }
+    #m-rope { position: absolute; left: 0; top: 0; }
+    .pk { position: absolute; left: 0; top: 0; }
+    .cap { position: absolute; left: 230px; top: 818px; opacity: 0; white-space: nowrap; }
+    .cap .lab { display: flex; align-items: center; gap: 14px; font-size: 32px; font-weight: 700; color: #F0553A; letter-spacing: -0.01em; }
+    .cap .lab img { width: 48px; height: 48px; }
+    .cap .ln { margin-top: 10px; font-size: 76px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+    .cap .ln span { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="modules" data-width="1920" data-height="1080">
+    <div class="m-stage" id="m-stage">
+      <svg id="m-rope" width="1920" height="1080" viewBox="0 0 1920 1080">
+        <defs><linearGradient id="m-rg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#F0553A"/><stop offset="1" stop-color="#ff8a5c"/></linearGradient></defs>
+        <path id="m-path" d="M510 500 C 640 660, 880 640, 1010 420" fill="none" stroke="url(#m-rg)" stroke-width="6" stroke-linecap="round"/>
+        <path id="m-dots" d="M510 500 C 640 660, 880 640, 1010 420" fill="none" stroke="#ff8a5c" stroke-width="14" stroke-linecap="round" stroke-dasharray="1 22"/>
+        <circle cx="510" cy="500" r="11" fill="#F0553A"/>
+        <circle cx="1010" cy="420" r="11" fill="#F0553A"/>
+      </svg>
+
+      <!-- ============ PHONE ============ -->
+      <div class="phone" id="m-phone">
+        <div class="scr">
+          <!-- Goz: a Reel + share sheet -->
+          <div class="L" id="p-goz">
+            <div class="card" style="left:30px;top:70px;width:196px;height:300px;background:#2a2d33">
+              <svg style="position:absolute;left:73px;top:115px" width="50" height="60" viewBox="0 0 50 60"><path d="M6 4 L46 30 L6 56 Z" fill="#F2F3F5"/></svg>
+              <div class="bar" style="left:18px;top:250px;width:120px;background:#4a4f58"></div>
+              <div class="bar" style="left:18px;top:272px;width:80px;background:#4a4f58"></div>
+            </div>
+            <div id="p-sheet" class="card" style="left:0;top:396px;width:256px;height:160px;border-radius:26px 26px 0 0">
+              <div style="position:absolute;left:24px;top:28px;width:64px;height:64px;border-radius:16px;background:#2a2d33"></div>
+              <div id="p-share" style="position:absolute;left:96px;top:28px;width:64px;height:64px;border-radius:16px;background:#0c0d0f;box-shadow:inset 0 0 0 2px #F0553A">
+                <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="16" fill="none" stroke="#F2F3F5" stroke-width="4"/><path d="M32 10v44M10 32h44M17 17l30 30M47 17L17 47" stroke="#F2F3F5" stroke-width="4" stroke-linecap="round"/><circle cx="32" cy="32" r="7" fill="#F0553A" stroke="#0c0d0f" stroke-width="3"/></svg>
+              </div>
+              <div style="position:absolute;left:168px;top:28px;width:64px;height:64px;border-radius:16px;background:#2a2d33"></div>
+              <div class="bar" style="left:96px;top:106px;width:64px"></div>
+            </div>
+          </div>
+          <!-- Conch: player -->
+          <div class="L" id="p-conch">
+            <div style="position:absolute;left:28px;top:80px;width:200px;height:200px;border-radius:20px;background:#F0553A">
+              <svg width="200" height="200" viewBox="0 0 48 48"><g fill="none" stroke="#0c0d0f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 33c-3-8 1-18 10-19 7-1 11 5 9 11-2 5-8 6-11 2-2-3 0-7 3-6"/><path d="M15 33h18"/></g></svg>
+            </div>
+            <div class="bar" style="left:28px;top:304px;width:150px;background:#F2F3F5"></div>
+            <div class="bar" style="left:28px;top:328px;width:100px"></div>
+            <svg style="position:absolute;left:38px;top:370px" width="180" height="50" viewBox="0 0 180 50"><path d="M30 12v26M50 25l-18 0M50 12L34 25l16 13z" fill="#F2F3F5" stroke="#F2F3F5" stroke-width="3" stroke-linejoin="round"/><rect x="78" y="8" width="8" height="34" rx="2" fill="#F2F3F5"/><rect x="94" y="8" width="8" height="34" rx="2" fill="#F2F3F5"/><path d="M130 12l16 13-16 13zM150 12v26" fill="#F2F3F5" stroke="#F2F3F5" stroke-width="3" stroke-linejoin="round"/></svg>
+            <div class="eq" style="position:absolute;left:68px;top:440px;width:120px;height:80px">
+              <div class="m-eq" style="position:absolute;left:0;bottom:0;width:16px;height:80px;border-radius:4px;background:#F0553A"></div>
+              <div class="m-eq" style="position:absolute;left:26px;bottom:0;width:16px;height:80px;border-radius:4px;background:#F0553A"></div>
+              <div class="m-eq" style="position:absolute;left:52px;bottom:0;width:16px;height:80px;border-radius:4px;background:#F0553A"></div>
+              <div class="m-eq" style="position:absolute;left:78px;bottom:0;width:16px;height:80px;border-radius:4px;background:#F0553A"></div>
+              <div class="m-eq" style="position:absolute;left:104px;bottom:0;width:16px;height:80px;border-radius:4px;background:#F0553A"></div>
+            </div>
+          </div>
+          <!-- Wake: files -->
+          <div class="L" id="p-wake">
+            <div class="card" style="left:20px;top:80px;width:216px;height:80px"><div style="position:absolute;left:16px;top:18px;width:34px;height:44px;border-radius:6px;background:#3a3e46"></div><div class="bar" style="left:64px;top:26px;width:120px;background:#8E939B"></div><div class="bar" style="left:64px;top:46px;width:70px"></div></div>
+            <div class="card" style="left:20px;top:176px;width:216px;height:80px"><div style="position:absolute;left:16px;top:18px;width:34px;height:44px;border-radius:6px;background:#3a3e46"></div><div class="bar" style="left:64px;top:26px;width:100px;background:#8E939B"></div><div class="bar" style="left:64px;top:46px;width:60px"></div></div>
+            <div class="card" style="left:20px;top:272px;width:216px;height:80px"><div style="position:absolute;left:16px;top:18px;width:34px;height:44px;border-radius:6px;background:#3a3e46"></div><div class="bar" style="left:64px;top:26px;width:130px;background:#8E939B"></div><div class="bar" style="left:64px;top:46px;width:80px"></div></div>
+            <div class="card" id="p-wake4" style="left:20px;top:368px;width:216px;height:80px;box-shadow:inset 0 0 0 2px #F0553A"><div style="position:absolute;left:16px;top:18px;width:34px;height:44px;border-radius:6px;background:#F0553A"></div><div class="bar" style="left:64px;top:26px;width:110px;background:#F2F3F5"></div><div class="bar" style="left:64px;top:46px;width:64px"></div></div>
+          </div>
+          <!-- Ekran: window lands on the phone -->
+          <div class="L" id="p-ekran">
+            <div id="p-win" class="card" style="left:18px;top:160px;width:220px;height:170px;background:#1d2025">
+              <div style="position:absolute;left:14px;top:14px;width:12px;height:12px;border-radius:6px;background:#F0553A"></div>
+              <div class="bar" style="left:14px;top:50px;width:150px;background:#8E939B"></div>
+              <div class="bar" style="left:14px;top:74px;width:180px"></div>
+              <div class="bar" style="left:14px;top:98px;width:120px"></div>
+            </div>
+          </div>
+          <!-- Kamera: viewfinder -->
+          <div class="L" id="p-kam" style="background:#16181c">
+            <svg style="position:absolute;left:0;top:0" width="256" height="556" viewBox="0 0 256 556"><circle cx="128" cy="250" r="62" fill="#2a2d33"/><path d="M20 556 C 30 380, 226 380, 236 556 Z" fill="#2a2d33"/><circle cx="214" cy="80" r="9" fill="#F0553A"/><path d="M30 70v-30h30M226 70v-30h-30M30 486v30h30M226 486v30h-30" fill="none" stroke="#F2F3F5" stroke-width="4"/></svg>
+          </div>
+          <!-- Kumanda: controls -->
+          <div class="L" id="p-kum">
+            <div class="card" style="left:20px;top:80px;width:216px;height:96px">
+              <svg style="position:absolute;left:20px;top:24px" width="48" height="48" viewBox="0 0 48 48"><g fill="#F2F3F5"><rect x="2" y="2" width="18" height="18" rx="5"/><rect x="28" y="2" width="18" height="18" rx="5"/><rect x="2" y="28" width="18" height="18" rx="5"/><rect x="28" y="28" width="18" height="18" rx="5" fill="#F0553A"/></g></svg>
+              <div class="bar" style="left:88px;top:42px;width:96px;background:#8E939B"></div>
+            </div>
+            <div class="card" style="left:20px;top:192px;width:216px;height:96px">
+              <div style="position:absolute;left:24px;top:44px;width:168px;height:8px;border-radius:4px;background:#3a3e46"></div>
+              <div id="p-vol" style="position:absolute;left:24px;top:44px;width:168px;height:8px;border-radius:4px;background:#F0553A"></div>
+              <div id="p-knob" style="position:absolute;left:0;top:34px;width:28px;height:28px;border-radius:14px;background:#F2F3F5"></div>
+            </div>
+            <div id="p-lockbtn" style="position:absolute;left:78px;top:330px;width:100px;height:100px;border-radius:50px;background:#F0553A">
+              <svg style="position:absolute;left:30px;top:24px" width="40" height="50" viewBox="0 0 40 50"><path d="M10 22v-8a10 10 0 0 1 20 0v8" fill="none" stroke="#0c0d0f" stroke-width="5"/><rect x="3" y="22" width="34" height="26" rx="6" fill="#0c0d0f"/></svg>
+            </div>
+          </div>
+          <!-- Sync: clipboard -->
+          <div class="L" id="p-sync">
+            <div class="card" style="left:20px;top:90px;width:216px;height:120px;box-shadow:inset 0 0 0 2px #F0553A">
+              <div class="bar" style="left:18px;top:30px;width:170px;background:#F2F3F5"></div>
+              <div class="bar" style="left:18px;top:56px;width:120px;background:#8E939B"></div>
+              <div class="bar" style="left:18px;top:82px;width:150px;background:#8E939B"></div>
+            </div>
+            <div id="p-paste" class="card" style="left:20px;top:250px;width:216px;height:96px;background:#1d2025">
+              <div class="bar" style="left:18px;top:30px;width:150px;background:#F0553A"></div>
+              <div class="bar" style="left:18px;top:56px;width:100px;background:#8E939B"></div>
+            </div>
+          </div>
+          <!-- Siri -->
+          <div class="L" id="p-siri">
+            <div class="card" style="left:16px;top:84px;width:224px;height:150px;background:#1d2025;border-radius:22px">
+              <div id="p-say" style="position:absolute;left:18px;top:16px;width:190px;font-size:26px;font-weight:700;line-height:1.25;white-space:normal"><span>Send</span> <span>my</span> <span>last</span> <span>photo</span> <span>to</span> <span>my</span> <span>PC</span></div>
+            </div>
+            <div id="p-photo" style="position:absolute;left:40px;top:260px;width:176px;height:120px;border-radius:12px;background:#2a2d33;overflow:hidden">
+              <svg width="176" height="120" viewBox="0 0 176 120"><circle cx="130" cy="34" r="14" fill="#ff8a5c"/><path d="M0 120 L56 52 L96 96 L120 70 L176 120 Z" fill="#4a4f58"/></svg>
+            </div>
+            <div style="position:absolute;left:40px;top:440px;width:176px;height:80px">
+              <div class="m-sw" style="position:absolute;left:0;top:10px;width:12px;height:60px;border-radius:6px;background:#F0553A"></div>
+              <div class="m-sw" style="position:absolute;left:23px;top:10px;width:12px;height:60px;border-radius:6px;background:#F0553A"></div>
+              <div class="m-sw" style="position:absolute;left:46px;top:10px;width:12px;height:60px;border-radius:6px;background:#ff8a5c"></div>
+              <div class="m-sw" style="position:absolute;left:69px;top:10px;width:12px;height:60px;border-radius:6px;background:#F0553A"></div>
+              <div class="m-sw" style="position:absolute;left:92px;top:10px;width:12px;height:60px;border-radius:6px;background:#ff8a5c"></div>
+              <div class="m-sw" style="position:absolute;left:115px;top:10px;width:12px;height:60px;border-radius:6px;background:#F0553A"></div>
+              <div class="m-sw" style="position:absolute;left:138px;top:10px;width:12px;height:60px;border-radius:6px;background:#F0553A"></div>
+              <div class="m-sw" style="position:absolute;left:161px;top:10px;width:12px;height:60px;border-radius:6px;background:#ff8a5c"></div>
+            </div>
+          </div>
+        </div>
+        <div class="isl"></div>
+      </div>
+
+      <!-- ============ PC ============ -->
+      <div class="pc" id="m-pc">
+        <div class="scr">
+          <!-- Goz: note window -->
+          <div class="L" id="q-goz">
+            <div class="card" id="q-note" style="left:120px;top:44px;width:448px;height:330px">
+              <div class="t26" style="left:28px;top:24px">Reel saved</div>
+              <div class="ok q-ok" style="left:28px;top:84px"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M2 8l5 5 9-11" fill="none" stroke="#0c0d0f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="t22" style="left:72px;top:86px;color:#F2F3F5">Saved</div>
+              <div class="ok q-ok" style="left:28px;top:130px"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M2 8l5 5 9-11" fill="none" stroke="#0c0d0f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="t22" style="left:72px;top:132px;color:#F2F3F5">Transcribed</div>
+              <div class="ok q-ok" style="left:28px;top:176px"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M2 8l5 5 9-11" fill="none" stroke="#0c0d0f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="t22" style="left:72px;top:178px;color:#F2F3F5">Notes</div>
+              <div class="bar q-nb" style="left:28px;top:232px;width:380px"></div>
+              <div class="bar q-nb" style="left:28px;top:256px;width:320px"></div>
+              <div class="bar q-nb" style="left:28px;top:280px;width:350px"></div>
+            </div>
+          </div>
+          <!-- Conch: game + tiny overlay -->
+          <div class="L" id="q-conch" style="background:#121418">
+            <svg style="position:absolute;left:0;top:0" width="688" height="418" viewBox="0 0 688 418"><path d="M0 418 L0 300 L120 210 L220 280 L360 170 L500 270 L600 220 L688 260 L688 418 Z" fill="#1d2025"/><path d="M0 418 L0 350 L160 300 L300 360 L460 310 L688 360 L688 418 Z" fill="#2a2d33"/><circle cx="344" cy="300" r="5" fill="none" stroke="#8E939B" stroke-width="2"/></svg>
+            <div id="q-pill" style="position:absolute;left:356px;top:18px;width:314px;height:84px;border-radius:42px;background:#1d2025;box-shadow:inset 0 0 0 2px #3a3e46">
+              <div style="position:absolute;left:14px;top:14px;width:56px;height:56px;border-radius:28px;background:#F0553A"></div>
+              <div class="bar" style="left:84px;top:24px;width:110px;background:#F2F3F5;height:10px"></div>
+              <div style="position:absolute;left:84px;top:50px;width:120px;height:6px;border-radius:3px;background:#3a3e46"></div>
+              <div id="q-prog" style="position:absolute;left:84px;top:50px;width:120px;height:6px;border-radius:3px;background:#F0553A"></div>
+              <svg style="position:absolute;left:222px;top:26px" width="76" height="32" viewBox="0 0 76 32"><rect x="4" y="4" width="7" height="24" rx="2" fill="#F2F3F5"/><rect x="16" y="4" width="7" height="24" rx="2" fill="#F2F3F5"/><path d="M42 4l18 12-18 12zM64 4v24" fill="#F2F3F5" stroke="#F2F3F5" stroke-width="3" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <!-- Wake: per-file progress -->
+          <div class="L" id="q-wake">
+            <div class="card" style="left:84px;top:40px;width:520px;height:338px">
+              <div class="t26" style="left:28px;top:22px">Receiving 3 files</div>
+              <div style="position:absolute;left:28px;top:86px;width:30px;height:40px;border-radius:6px;background:#3a3e46"></div>
+              <div class="bar" style="left:74px;top:88px;width:180px;background:#8E939B"></div>
+              <div style="position:absolute;left:74px;top:114px;width:400px;height:10px;border-radius:5px;background:#2a2d33"></div>
+              <div class="q-pr" style="position:absolute;left:74px;top:114px;width:400px;height:10px;border-radius:5px;background:#F0553A"></div>
+              <div style="position:absolute;left:28px;top:166px;width:30px;height:40px;border-radius:6px;background:#3a3e46"></div>
+              <div class="bar" style="left:74px;top:168px;width:150px;background:#8E939B"></div>
+              <div style="position:absolute;left:74px;top:194px;width:400px;height:10px;border-radius:5px;background:#2a2d33"></div>
+              <div class="q-pr" style="position:absolute;left:74px;top:194px;width:400px;height:10px;border-radius:5px;background:#F0553A"></div>
+              <div style="position:absolute;left:28px;top:246px;width:30px;height:40px;border-radius:6px;background:#3a3e46"></div>
+              <div class="bar" style="left:74px;top:248px;width:200px;background:#8E939B"></div>
+              <div style="position:absolute;left:74px;top:274px;width:400px;height:10px;border-radius:5px;background:#2a2d33"></div>
+              <div class="q-pr" style="position:absolute;left:74px;top:274px;width:400px;height:10px;border-radius:5px;background:#F0553A"></div>
+            </div>
+          </div>
+          <!-- Ekran: desktop window leaves to the left -->
+          <div class="L" id="q-ekran">
+            <div id="q-win" class="card" style="left:120px;top:80px;width:440px;height:260px;background:#1d2025">
+              <div style="position:absolute;left:20px;top:20px;width:14px;height:14px;border-radius:7px;background:#F0553A"></div>
+              <div class="bar" style="left:20px;top:70px;width:300px;background:#8E939B;height:14px"></div>
+              <div class="bar" style="left:20px;top:104px;width:380px;height:14px"></div>
+              <div class="bar" style="left:20px;top:138px;width:250px;height:14px"></div>
+            </div>
+          </div>
+          <!-- Kamera: video call tile -->
+          <div class="L" id="q-kam">
+            <div style="position:absolute;left:94px;top:34px;width:500px;height:300px;border-radius:14px;background:#16181c;overflow:hidden;box-shadow:inset 0 0 0 2px #F0553A">
+              <svg width="500" height="300" viewBox="0 0 500 300"><circle cx="250" cy="130" r="56" fill="#2a2d33"/><path d="M120 300 C 130 200, 370 200, 380 300 Z" fill="#2a2d33"/></svg>
+              <div style="position:absolute;left:16px;top:248px;height:36px;padding:0 14px;border-radius:18px;background:#0c0d0f;font-size:22px;font-weight:700;line-height:36px">iPhone camera</div>
+            </div>
+            <div style="position:absolute;left:94px;top:350px;width:500px;height:44px;display:flex;gap:14px;justify-content:center"><div style="width:44px;height:44px;border-radius:22px;background:#2a2d33"></div><div style="width:44px;height:44px;border-radius:22px;background:#2a2d33"></div><div style="width:44px;height:44px;border-radius:22px;background:#F0553A"></div></div>
+          </div>
+          <!-- Kumanda: volume OSD, then lock -->
+          <div class="L" id="q-kum">
+            <div class="card" style="left:194px;top:290px;width:300px;height:70px;background:#1d2025">
+              <svg style="position:absolute;left:20px;top:19px" width="34" height="32" viewBox="0 0 34 32"><path d="M2 11h7l9-8v26l-9-8H2z" fill="#F2F3F5"/><path d="M23 9a9 9 0 0 1 0 14M27 4a15 15 0 0 1 0 24" fill="none" stroke="#F2F3F5" stroke-width="3" stroke-linecap="round"/></svg>
+              <div style="position:absolute;left:72px;top:30px;width:204px;height:10px;border-radius:5px;background:#3a3e46"></div>
+              <div id="q-vol" style="position:absolute;left:72px;top:30px;width:204px;height:10px;border-radius:5px;background:#F0553A"></div>
+            </div>
+            <div id="q-lock" style="position:absolute;inset:0;background:#08090a">
+              <svg style="position:absolute;left:309px;top:130px" width="70" height="88" viewBox="0 0 40 50"><path d="M10 22v-8a10 10 0 0 1 20 0v8" fill="none" stroke="#F2F3F5" stroke-width="4"/><rect x="3" y="22" width="34" height="26" rx="6" fill="#F2F3F5"/><circle cx="20" cy="35" r="4" fill="#08090a"/></svg>
+              <div class="t26" style="left:0;width:688px;text-align:center;top:240px">Locked</div>
+            </div>
+          </div>
+          <!-- Sync: editor receives the paste -->
+          <div class="L" id="q-sync">
+            <div class="card" style="left:84px;top:40px;width:520px;height:338px;background:#16181c">
+              <div class="bar" style="left:28px;top:36px;width:300px;background:#8E939B"></div>
+              <div class="bar" style="left:28px;top:66px;width:420px"></div>
+              <div class="bar" style="left:28px;top:96px;width:360px"></div>
+              <div id="q-paste" style="position:absolute;left:20px;top:132px;width:480px;height:96px;border-radius:10px;box-shadow:inset 0 0 0 2px #F0553A">
+                <div class="bar" style="left:18px;top:24px;width:340px;background:#F2F3F5"></div>
+                <div class="bar" style="left:18px;top:50px;width:240px;background:#8E939B"></div>
+              </div>
+              <div id="q-copy" style="position:absolute;left:20px;top:250px;width:480px;height:60px;border-radius:10px;background:#2a2d33">
+                <div class="bar" style="left:18px;top:24px;width:200px;background:#F0553A"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Siri: the photo opens -->
+          <div class="L" id="q-siri" style="background:#08090a">
+            <div id="q-photo" style="position:absolute;left:124px;top:44px;width:440px;height:300px;border-radius:12px;background:#2a2d33;overflow:hidden">
+              <svg width="440" height="300" viewBox="0 0 176 120"><circle cx="130" cy="34" r="14" fill="#ff8a5c"/><path d="M0 120 L56 52 L96 96 L120 70 L176 120 Z" fill="#4a4f58"/></svg>
+            </div>
+            <div class="t22" style="left:124px;top:360px;color:#F2F3F5">From iPhone</div>
+          </div>
+        </div>
+        <div class="neck"></div><div class="base"></div>
+      </div>
+
+      <!-- packets that cross the rope -->
+      <div class="pk" id="k-reel" style="width:54px;height:80px;border-radius:10px;background:#2a2d33;box-shadow:0 0 0 3px #F0553A"><svg style="position:absolute;left:18px;top:28px" width="20" height="24" viewBox="0 0 50 60"><path d="M6 4 L46 30 L6 56 Z" fill="#F2F3F5"/></svg></div>
+      <div class="pk k-note" style="width:26px;height:26px;border-radius:13px;background:#F0553A"></div>
+      <div class="pk k-note" style="width:20px;height:20px;border-radius:10px;background:#ff8a5c"></div>
+      <div class="pk k-note" style="width:26px;height:26px;border-radius:13px;background:#F0553A"></div>
+      <div class="pk k-file" style="width:44px;height:56px;border-radius:8px;background:#3a3e46;box-shadow:0 0 0 3px #F0553A"></div>
+      <div class="pk k-file" style="width:44px;height:56px;border-radius:8px;background:#3a3e46;box-shadow:0 0 0 3px #F0553A"></div>
+      <div class="pk k-file" style="width:44px;height:56px;border-radius:8px;background:#3a3e46;box-shadow:0 0 0 3px #F0553A"></div>
+      <div class="pk" id="k-back" style="width:44px;height:56px;border-radius:8px;background:#F0553A"></div>
+      <div class="pk" id="k-lens" style="width:48px;height:48px;border-radius:24px;background:#0c0d0f;box-shadow:0 0 0 5px #F0553A"></div>
+      <div class="pk" id="k-lock" style="width:40px;height:40px;border-radius:20px;background:#F0553A"></div>
+      <div class="pk" id="k-clip1" style="width:90px;height:50px;border-radius:10px;background:#1d2025;box-shadow:0 0 0 3px #F0553A"></div>
+      <div class="pk" id="k-clip2" style="width:90px;height:50px;border-radius:10px;background:#2a2d33;box-shadow:0 0 0 3px #ff8a5c"></div>
+      <div class="pk" id="k-photo" style="width:96px;height:66px;border-radius:8px;background:#2a2d33;overflow:hidden;box-shadow:0 0 0 3px #F0553A"><svg width="96" height="66" viewBox="0 0 176 120"><circle cx="130" cy="34" r="14" fill="#ff8a5c"/><path d="M0 120 L56 52 L96 96 L120 70 L176 120 Z" fill="#4a4f58"/></svg></div>
+    </div>
+
+    <!-- captions -->
+    <div class="cap" id="c-goz"><div class="lab"><img src="assets/icons/goz.svg" alt="">Göz</div><div class="ln"><span>Share</span> <span>a</span> <span>Reel.</span> <span>Get</span> <span>notes.</span></div></div>
+    <div class="cap" id="c-conch"><div class="lab"><img src="assets/icons/conch.svg" alt="">Conch</div><div class="ln"><span>Phone</span> <span>music.</span> <span>PC</span> <span>speakers.</span></div></div>
+    <div class="cap" id="c-wake"><div class="lab"><img src="assets/icons/wake.svg" alt="">Wake</div><div class="ln"><span>Drop</span> <span>files</span> <span>either</span> <span>way.</span></div></div>
+    <div class="cap" id="c-ekran"><div class="lab"><img src="assets/icons/ekran.svg" alt="">Ekran<img src="assets/icons/kamera.svg" alt="" style="margin-left:18px">Kamera</div><div class="ln"><span>Second</span> <span>screen.</span> <span>Webcam.</span></div></div>
+    <div class="cap" id="c-kum"><div class="lab"><img src="assets/icons/kumanda.svg" alt="">Kumanda</div><div class="ln"><span>Launch.</span> <span>Volume.</span> <span>Lock.</span></div></div>
+    <div class="cap" id="c-sync"><div class="lab"><img src="assets/icons/sync.svg" alt="">Sync</div><div class="ln"><span>Clipboard,</span> <span>both</span> <span>ways.</span></div></div>
+    <div class="cap" id="c-siri"><div class="lab"><img src="assets/icons/siri.svg" alt="">Siri</div><div class="ln"><span>Just</span> <span>ask.</span></div></div>
+  </div>
+  <script>
+    (function () {
+            const tl = gsap.timeline({ paused: true });
+      const B = [0.3, 2.1, 3.6, 5.1, 6.6, 8.1, 9.6, 11.5];
+      // hide every packet until it travels
+      tl.fromTo(".pk", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      const P = document.querySelector("#m-path");
+      const PL = P.getTotalLength();
+      const travel = (sel, t0, dur, back) => {
+        const el = typeof sel === "string" ? document.querySelector(sel) : sel;
+        const w = el.offsetWidth / 2, h = el.offsetHeight / 2;
+        const place = (p) => { const pt = P.getPointAtLength((back ? 1 - p : p) * PL); gsap.set(el, { x: pt.x - w, y: pt.y - h }); };
+        const proxy = { p: 0 };
+        place(0);
+        tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.08, immediateRender: false }, t0);
+        tl.fromTo(proxy, { p: 0 }, { p: 1, duration: dur, ease: "power2.inOut", immediateRender: false, onUpdate: () => place(proxy.p) }, t0);
+        tl.to(el, { opacity: 0, duration: 0.08 }, t0 + dur - 0.04);
+      };
+      const layer = (sel, t0, t1) => {
+        tl.fromTo(sel, { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power2.out", immediateRender: false }, t0);
+        tl.to(sel, { opacity: 0, filter: "blur(8px)", duration: 0.12, ease: "power2.in" }, t1 - 0.12);
+      };
+      const cap = (sel, t0, t1) => {
+        tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.01, immediateRender: false }, t0);
+        tl.fromTo(sel + " .lab", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power4.out" }, t0);
+        tl.fromTo(sel + " .ln span", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.13, stagger: 0.06, ease: "power4.out" }, t0 + 0.05);
+        tl.to(sel, { opacity: 0, filter: "blur(8px)", duration: 0.12, ease: "power2.in" }, t1 - 0.13);
+      };
+
+      // stage enters from below (continues the whip up)
+      tl.fromTo("#m-stage", { y: 900, filter: "blur(16px)" }, { y: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 0);
+      tl.fromTo("#m-dots", { strokeDashoffset: 0 }, { strokeDashoffset: -46 * 8, duration: 12, ease: "none" }, 0);
+
+      // ---- Goz
+      let b = B[0];
+      cap("#c-goz", b, B[1]); layer("#p-goz", b - 0.1, B[1]); layer("#q-goz", b + 0.95, B[1]);
+      tl.fromTo("#p-sheet", { y: 170 }, { y: 0, duration: 0.3, ease: "expo.out" }, b + 0.15);
+      tl.fromTo("#p-share", { scale: 1 }, { scale: 0.84, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.inOut" }, b + 0.42);
+      travel("#k-reel", b + 0.5, 0.5);
+      tl.fromTo("#q-note", { scale: 0.7, transformOrigin: "0% 60%" }, { scale: 1, duration: 0.35, ease: "expo.out" }, b + 0.95);
+      tl.fromTo("#q-goz .q-ok", { scale: 0 }, { scale: 1, duration: 0.22, stagger: 0.1, ease: "back.out(2.5)" }, b + 1.0);
+      tl.fromTo("#q-goz .q-nb", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 0.3, stagger: 0.06, ease: "expo.out" }, b + 1.1);
+
+      // ---- Conch
+      b = B[1];
+      cap("#c-conch", b, B[2]); layer("#p-conch", b, B[2]); layer("#q-conch", b + 0.1, B[2]);
+      document.querySelectorAll(".m-eq").forEach((el, i) => {
+        tl.fromTo(el, { scaleY: 0.25 + 0.15 * (i % 3), transformOrigin: "50% 100%" }, { scaleY: 1 - 0.12 * (i % 2), duration: 0.16 + 0.03 * i, yoyo: true, repeat: 7, ease: "sine.inOut" }, b);
+      });
+      document.querySelectorAll(".k-note").forEach((el, i) => travel(el, b + 0.15 + i * 0.14, 0.5));
+      tl.fromTo("#q-pill", { x: 340, filter: "blur(10px)" }, { x: 0, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, b + 0.55);
+      tl.fromTo("#q-prog", { scaleX: 0.1, transformOrigin: "0 50%" }, { scaleX: 0.55, duration: 1.0, ease: "none" }, b + 0.5);
+
+      // ---- Wake
+      b = B[2];
+      cap("#c-wake", b, B[3]); layer("#p-wake", b, B[3]); layer("#q-wake", b + 0.05, B[3]);
+      tl.fromTo("#p-wake4", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.25, ease: "expo.out" }, b + 1.15);
+      document.querySelectorAll(".k-file").forEach((el, i) => travel(el, b + 0.12 + i * 0.12, 0.48));
+      document.querySelectorAll(".q-pr").forEach((el, i) => {
+        tl.fromTo(el, { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 0.35 + i * 0.22, ease: "power1.inOut" }, b + 0.5 + i * 0.1);
+      });
+      travel("#k-back", b + 0.75, 0.45, true);
+
+      // ---- Ekran + Kamera
+      b = B[3];
+      cap("#c-ekran", b, B[4]); layer("#q-ekran", b, b + 0.8); layer("#p-ekran", b + 0.3, b + 0.8);
+      tl.fromTo("#q-win", { x: 0, filter: "blur(0px)" }, { x: -620, filter: "blur(12px)", duration: 0.3, ease: "power3.in" }, b + 0.12);
+      tl.fromTo("#p-win", { x: 260, filter: "blur(12px)" }, { x: 0, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, b + 0.38);
+      layer("#p-kam", b + 0.75, B[4]); layer("#q-kam", b + 0.95, B[4]);
+      travel("#k-lens", b + 0.72, 0.4);
+
+      // ---- Kumanda
+      b = B[4];
+      cap("#c-kum", b, B[5]); layer("#p-kum", b, B[5]); layer("#q-kum", b + 0.05, B[5]);
+      tl.fromTo("#p-knob", { x: 60 }, { x: 150, duration: 0.45, ease: "power2.inOut" }, b + 0.15);
+      tl.fromTo("#p-vol", { scaleX: 0.45, transformOrigin: "0 50%" }, { scaleX: 0.98, duration: 0.45, ease: "power2.inOut" }, b + 0.15);
+      tl.fromTo("#q-vol", { scaleX: 0.45, transformOrigin: "0 50%" }, { scaleX: 0.98, duration: 0.45, ease: "power2.inOut" }, b + 0.2);
+      tl.fromTo("#p-lockbtn", { scale: 1 }, { scale: 0.86, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.inOut" }, b + 0.68);
+      travel("#k-lock", b + 0.72, 0.36);
+      tl.fromTo("#q-lock", { opacity: 0 }, { opacity: 1, duration: 0.18, ease: "power2.out" }, b + 1.06);
+      tl.fromTo("#q-lock svg", { scale: 0.6, y: 20 }, { scale: 1, y: 0, duration: 0.3, ease: "expo.out" }, b + 1.06);
+
+      // ---- Sync
+      b = B[5];
+      cap("#c-sync", b, B[6]); layer("#p-sync", b, B[6]); layer("#q-sync", b + 0.05, B[6]);
+      travel("#k-clip1", b + 0.12, 0.45);
+      tl.fromTo("#q-paste", { opacity: 0, scale: 0.85, transformOrigin: "0 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "expo.out" }, b + 0.55);
+      tl.fromTo("#q-copy", { opacity: 0 }, { opacity: 1, duration: 0.15 }, b + 0.62);
+      travel("#k-clip2", b + 0.72, 0.45, true);
+      tl.fromTo("#p-paste", { opacity: 0, scale: 0.85, transformOrigin: "100% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "expo.out" }, b + 1.15);
+
+      // ---- Siri
+      b = B[6];
+      cap("#c-siri", b, B[7]); layer("#p-siri", b, B[7] + 0.2); layer("#q-siri", b + 0.95, B[7] + 0.2);
+      tl.fromTo("#p-say span", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.12, stagger: 0.06, ease: "power4.out" }, b + 0.08);
+      document.querySelectorAll(".m-sw").forEach((el, i) => {
+        tl.fromTo(el, { scaleY: 0.2 + 0.1 * (i % 3) }, { scaleY: 0.9 - 0.15 * (i % 2), duration: 0.12 + 0.02 * (i % 4), yoyo: true, repeat: 5, ease: "sine.inOut" }, b);
+      });
+      tl.fromTo("#p-photo", { scale: 1 }, { scale: 0.6, opacity: 0, duration: 0.25, ease: "power3.in" }, b + 0.6);
+      travel("#k-photo", b + 0.62, 0.42);
+      tl.fromTo("#q-photo", { scale: 0.25, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.4, ease: "expo.out" }, b + 1.0);
+
+      // ---- out: PC leaves, rope drops, phone steps to centre
+      const t = 11.5;
+      tl.to("#m-pc", { x: 900, filter: "blur(16px)", duration: 0.3, ease: "power3.in" }, t);
+      tl.to("#m-rope", { opacity: 0, duration: 0.2, ease: "power2.in" }, t);
+      tl.to("#m-phone", { x: 330, duration: 0.45, ease: "power2.inOut" }, t);
+      window.__timelines["modules"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,48 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: Inter, sans-serif; color: #F2F3F5; }
+    #e-mark { position: absolute; left: 556px; top: 330px; }
+    #e-word { position: absolute; left: 776px; top: 358px; font-size: 144px; font-weight: 900; letter-spacing: -0.05em; line-height: 1; white-space: nowrap; }
+    #e-word span, #e-tag span { display: inline-block; }
+    #e-tag { position: absolute; left: 0; width: 1920px; top: 600px; text-align: center; font-size: 60px; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; }
+    #e-sub { position: absolute; left: 0; width: 1920px; top: 700px; text-align: center; font-size: 32px; font-weight: 600; color: #8E939B; white-space: nowrap; }
+    .acc { color: #F0553A; }
+    #e-iris { position: absolute; inset: 0; background: #F0553A; }
+  </style>
+  <div id="root" data-composition-id="end" data-width="1920" data-height="1080">
+    <svg id="e-mark" width="200" height="200" viewBox="0 0 1024 1024">
+      <g stroke="#F2F3F5" stroke-width="38" stroke-linecap="round" fill="none">
+        <circle id="e-ring" cx="512" cy="512" r="212" transform="rotate(-90 512 512)"/>
+        <path class="e-sp" d="M512 422V202"/><path class="e-sp" d="M576 448L731 293"/><path class="e-sp" d="M602 512H822"/><path class="e-sp" d="M576 576L731 731"/>
+        <path class="e-sp" d="M512 602V822"/><path class="e-sp" d="M448 576L293 731"/><path class="e-sp" d="M422 512H202"/><path class="e-sp" d="M448 448L293 293"/>
+      </g>
+      <circle id="e-hub" cx="512" cy="512" r="90" fill="#F2F3F5"/>
+      <circle cx="512" cy="512" r="55" fill="#0c0d0f"/>
+      <circle cx="512" cy="512" r="38" fill="#F0553A"/>
+    </svg>
+    <div id="e-word"><span>M</span><span>o</span><span>o</span><span>r</span><span>l</span><span>i</span><span>n</span><span>e</span></div>
+    <div id="e-tag"><span>Your</span> <span>iPhone,</span> <span class="acc">moored</span> <span>to</span> <span>your</span> <span>PC.</span></div>
+    <div id="e-sub">iPhone + Windows PC &#183; Local network only</div>
+    <svg id="e-rope" style="position:absolute;left:660px;top:790px" width="600" height="50" viewBox="0 0 600 50"><path id="e-rd" d="M10 25 C 150 48, 300 2, 440 25 S 560 32, 590 20" fill="none" stroke="#F0553A" stroke-width="10" stroke-linecap="round" stroke-dasharray="1 22"/><circle cx="10" cy="25" r="7" fill="#F0553A"/><circle cx="590" cy="20" r="7" fill="#F0553A"/></svg>
+    <div id="e-iris"></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // orange closes down into the hub of the helm mark
+      tl.fromTo("#e-iris", { clipPath: "circle(2300px at 656px 430px)" }, { clipPath: "circle(7px at 656px 430px)", duration: 0.45, ease: "power3.inOut" }, 0);
+      tl.to("#e-iris", { opacity: 0, duration: 0.05 }, 0.45);
+      tl.fromTo("#e-hub", { attr: { r: 0 } }, { attr: { r: 90 }, duration: 0.3, ease: "back.out(2)" }, 0.38);
+      const C = 2 * Math.PI * 212;
+      tl.fromTo("#e-ring", { strokeDasharray: C, strokeDashoffset: C }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, 0.45);
+      tl.fromTo(".e-sp", { strokeDasharray: 230, strokeDashoffset: 230 }, { strokeDashoffset: 0, duration: 0.35, stagger: 0.035, ease: "expo.out" }, 0.55);
+      tl.fromTo("#e-mark", { rotation: -45, transformOrigin: "50% 50%" }, { rotation: 0, duration: 0.9, ease: "expo.out" }, 0.4);
+      tl.fromTo("#e-word span", { opacity: 0.0, x: -24, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.22, stagger: 0.04, ease: "expo.out" }, 0.75);
+      tl.fromTo("#e-tag span", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, stagger: 0.07, ease: "power4.out" }, 1.15);
+      tl.fromTo("#e-sub", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.55);
+      tl.fromTo("#e-rope", { opacity: 0, clipPath: "inset(0 100% 0 0)" }, { opacity: 1, clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power2.inOut" }, 1.6);
+      tl.fromTo("#e-rd", { strokeDashoffset: 0 }, { strokeDashoffset: -184, duration: 2.2, ease: "none" }, 1.6);
+      window.__timelines["end"] = tl;
+    })();
+  </script>
+</template>
