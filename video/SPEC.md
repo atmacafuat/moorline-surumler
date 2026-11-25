@@ -1,5 +1,5 @@
 GOAL:    viewer gets "my iPhone and my PC, tied together locally, nothing else" and remembers the name Moorline.
-OUTPUT:  HyperFrames, 1920 x 1080, 30 fps, silent (sound needs parent approval: ElevenLabs credits)
+OUTPUT:  HyperFrames, 1920 x 1080, 30 fps render (silent) + sound muxed by audio/mix.py (video stream copied). GIF stays silent.
 TIME:    28.9 s x 30 = 867 frames
 REFS:    Apple launch films -> giant kinetic type that slams and then holds dead still, hard cut on the fastest frame.
          Linear -> one clear promise, strict left grid, restraint, product pieces isolated big.
@@ -20,3 +20,6 @@ SHOTS:   hook 0-4.6      "Your iPhone." / whip / "Your PC." / rope thrown betwee
 BANNED:  floating void with small centred things, glow/bloom, glass cards, three cards in a row, logo docked in a corner,
          fade+slide-up on everything, text moving while read, emoji, Turkish copy on screen (module proper names excepted).
 QA:      frames 0.1, 1.5, 3.8, 5.8, 8.5, 10, 12, 13.5, 15, 16.5, 18, 20.5, 23.5, 27.5; no frozen >1.5 s, no text cut.
+SOUND:   ElevenLabs (audio/eleven.py, one take each): music bed (composition plan, drives to ~26.3 s and stops on the logo),
+         SFX whoosh/rope/strike/tick/qr/check/hit in audio/src. Cue times in audio/mix.py come from the scene timelines.
+         python video/audio/mix.py <silent.mp4> <out.mp4> -> -14 LUFS, -2 dBTP target, video bit-identical.
